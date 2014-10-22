@@ -6,10 +6,12 @@
 
 package pl.altkom.moto.crm.model;
 
+
 /**
  *
  * @author Administrator
  */
+
 public enum PaymentType {
     ALL,
     PARTIAL

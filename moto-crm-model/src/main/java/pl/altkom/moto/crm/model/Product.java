@@ -9,7 +9,7 @@ import java.util.Set;
 public class Product extends BaseEntity {
     private String eanNumber;
     private String description;
-    private Integer productGroup;
+    private ProductGroup productGroup;
     private Set<Integer> compatibleProducts;
 
     public String getEanNumber() {
@@ -28,11 +28,11 @@ public class Product extends BaseEntity {
         this.description = description;
     }
 
-    public Integer getProductGroup() {
+    public ProductGroup getProductGroup() {
         return productGroup;
     }
 
-    public void setProductGroup(Integer productGroup) {
+    public void setProductGroup(ProductGroup productGroup) {
         this.productGroup = productGroup;
     }
 

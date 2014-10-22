@@ -5,15 +5,20 @@
  */
 package pl.altkom.moto.crm.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 /**
  *
  * @author Administrator
  */
+@Entity
 public class User extends BaseEntity {
 
     private String login;
     private String password;
     private boolean active;
+    @ManyToOne
     private Group group;
 
     public String getLogin() {

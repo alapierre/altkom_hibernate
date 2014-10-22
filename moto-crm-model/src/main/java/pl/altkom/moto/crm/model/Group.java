@@ -6,11 +6,13 @@
 package pl.altkom.moto.crm.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Administrator
  */
+@Entity
 public class Group extends BaseEntity {
 
     @Column

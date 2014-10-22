@@ -1,16 +1,18 @@
 package pl.altkom.moto.crm.model;
 
 import java.util.Set;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Administrator
  */
+@Entity
 public class Product extends BaseEntity {
     private String eanNumber;
     private String description;
     private ProductGroup productGroup;
-    private Set<Integer> compatibleProducts;
+    private transient Set<Integer> compatibleProducts;
 
     public String getEanNumber() {
         return eanNumber;

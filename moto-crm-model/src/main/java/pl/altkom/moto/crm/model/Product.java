@@ -1,7 +1,11 @@
 package pl.altkom.moto.crm.model;
 
 import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -9,9 +13,14 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Product extends BaseEntity {
+    @Column(name = "ean_number")
     private String eanNumber;
     private String description;
+    
+    @OneToOne
+    @JoinColumns(@JoinColumn(name = "product_group_id", referencedColumnName = "id"))
     private ProductGroup productGroup;
+    
     private transient Set<Integer> compatibleProducts;
 
     public String getEanNumber() {

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pl.altkom.moto.crm.model;
 
 /**
  *
  * @author Administrator
  */
-public class ProductAvailability {
+public class ProductAvailability extends BaseEntity {
+
     private Product product;
     private long quantity;
     private long minimalQuantity;

@@ -1,5 +1,7 @@
 package pl.altkom.moto.crm.model;
 
+import java.util.Date;
+
 /**
  *
  * @author DeLong

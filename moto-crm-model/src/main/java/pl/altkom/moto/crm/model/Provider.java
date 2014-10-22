@@ -13,4 +13,22 @@ package pl.altkom.moto.crm.model;
 class Provider extends BaseEntity{
     private String company;
     private Price price;
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(Price price) {
+        this.price = price;
+    }
+    
+    
 }

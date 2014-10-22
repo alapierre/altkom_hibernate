@@ -1,20 +1,34 @@
 package pl.altkom.moto.crm.model;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author DeLong
  */
+@Entity
 public class Delivery extends BaseEntity{
+    @ManyToOne
     private Client client;
+    
+    @ManyToOne
     private Provider provider;
+    
+    @ManyToOne
     private User user;
+    
+    @OneToOne
+    private Order order;
+    
+    @ManyToOne
+    private Address address;
+    
     private Date shippingTime;
     private Date obtainTime;
     private Boolean deliveryAck;
-    private Order order;
-    private Address address;
     private String recipient;
 
     public Client getClient() {

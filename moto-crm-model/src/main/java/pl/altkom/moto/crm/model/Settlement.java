@@ -6,11 +6,13 @@
 package pl.altkom.moto.crm.model;
 
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Administrator
  */
+@Entity
 class Settlement extends BaseEntity {
 
     private Invoice invoice;

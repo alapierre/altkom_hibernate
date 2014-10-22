@@ -6,19 +6,35 @@
 package pl.altkom.moto.crm.model;
 
 import java.sql.Date;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author Administrator
  */
+@Entity
 public class Invoice extends BaseEntity {
 
     private String invoiceNumber;
 
-//    private List<Product> products;
-//    private Client client;
-//    private Resealer resealer;
+    @OneToMany
+    @JoinTable(name = "INV_PRODUCT",
+            joinColumns = @JoinColumn(name = "INVOICE_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
+    private List<Product> products;
     
+    
+    @OneToOne
+    @JoinColumn(name = "CLIENT_ID")
+    private Client client;
+    
+//    private Resealer resealer;
+
     private Date creationDate;
     private Date finalizationDate;
     private PaymentType paymentType;
@@ -54,7 +70,5 @@ public class Invoice extends BaseEntity {
     public void setPaymentType(PaymentType paymentType) {
         this.paymentType = paymentType;
     }
-    
-    
-    
+
 }

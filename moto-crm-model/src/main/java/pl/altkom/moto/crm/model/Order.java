@@ -7,15 +7,18 @@ package pl.altkom.moto.crm.model;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Administrator
  */
+@Entity
 public class Order extends BaseEntity {
     
     private Client client;
-    private List<ProductQuantity> products;
+    
+    private transient List<ProductQuantity> products;
     private Invoice invoice;
     private Date orderDate;
     private Date completionDate;

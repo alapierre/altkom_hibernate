@@ -12,7 +12,7 @@ package pl.altkom.moto.crm.model;
  */
 class Provider extends BaseEntity{
     private String company;
-    private PaymentEntity payment;
+    private Payment payment;
 
     public String getCompany() {
         return company;
@@ -22,11 +22,11 @@ class Provider extends BaseEntity{
         this.company = company;
     }
 
-    public PaymentEntity getPrice() {
+    public Payment getPrice() {
         return payment;
     }
 
-    public void setPrice(PaymentEntity price) {
+    public void setPrice(Payment price) {
         this.payment = price;
     }
 }

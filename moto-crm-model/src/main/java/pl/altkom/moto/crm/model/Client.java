@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
  * @author Administrator
  */
 @Entity
+@SuppressWarnings("PersistenceUnitPresent")
 public class Client extends BaseEntity {
     
     @Size(max = 128)

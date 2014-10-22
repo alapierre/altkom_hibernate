@@ -7,12 +7,13 @@ import javax.validation.constraints.Pattern;
 
 @Entity
 public class Address extends BaseEntity {
-
+    
     @NotNull
     private String city;
 
     @NotNull
     private String street;
+    
 
     @Column(name = "POST_CODE", nullable = false)
     @Pattern(regexp = "^\\d{2}-\\d{3}$")

@@ -5,8 +5,12 @@
  */
 package pl.altkom.moto.crm.model;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -23,6 +27,24 @@ public class Group extends BaseEntity {
     private String code;
     @Column
     private String active;
+
+    @ManyToMany
+    @JoinTable(
+            name = "GROUP_ROLE",
+            joinColumns = {
+                @JoinColumn(name = "group_id", referencedColumnName = "id")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "role_id", referencedColumnName = "id")})
+    private List<Role> roles;
+
+    @ManyToMany
+    @JoinTable(
+            name = "GROUP_USER",
+            joinColumns = {
+                @JoinColumn(name = "group_id", referencedColumnName = "id")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "user_id", referencedColumnName = "id")})
+    private List<User> users;
 
     public String getName() {
         return name;
@@ -54,6 +76,22 @@ public class Group extends BaseEntity {
 
     public void setActive(String active) {
         this.active = active;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
 }

@@ -9,7 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
- * 
+ *
  * @author Administrator
  */
 @Entity
@@ -35,5 +35,4 @@ public class Role extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }

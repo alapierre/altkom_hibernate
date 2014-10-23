@@ -23,7 +23,7 @@ import pl.altkom.moto.crm.model.PaymentType;
  *
  * @author Administrator
  */
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration("/session-factory-applicationContext.xml")
 @TransactionConfiguration(defaultRollback = false)
 public class InvoiceDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
 

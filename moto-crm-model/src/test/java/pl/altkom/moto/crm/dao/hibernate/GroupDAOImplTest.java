@@ -18,7 +18,7 @@ import junit.framework.Assert;
  *
  * @author Administrator
  */
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration("/session-factory-applicationContext.xml")
 @TransactionConfiguration(defaultRollback = false)
 public class GroupDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
 

@@ -20,7 +20,7 @@ import pl.altkom.moto.crm.model.Client;
  *
  * @author Administrator
  */
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration("/session-factory-applicationContext.xml")
 @TransactionConfiguration(defaultRollback = false)
 public class ClientDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
 

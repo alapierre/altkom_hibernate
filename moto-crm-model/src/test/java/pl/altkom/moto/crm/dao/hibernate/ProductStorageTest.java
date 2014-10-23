@@ -17,7 +17,7 @@ import pl.altkom.moto.crm.model.ProductAvailability;
  *
  * @author Administrator
  */
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration("/session-factory-applicationContext.xml")
 @TransactionConfiguration(defaultRollback = false)
 public class ProductStorageTest extends AbstractTransactionalJUnit4SpringContextTests {
     @Autowired

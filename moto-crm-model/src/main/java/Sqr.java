@@ -4,20 +4,10 @@
  * and open the template in the editor.
  */
 
-package pl.altkom.moto.crm.dao.hibernate;
-
-import org.springframework.stereotype.Repository;
-import pl.altkom.moto.crm.model.Client;
-
 /**
  *
  * @author Administrator
  */
-
-public interface ClientDAO {
-
-    Client findOne(Long id);
-
-    void save(Client entity);
+class Sqr {
     
 }

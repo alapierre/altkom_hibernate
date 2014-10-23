@@ -16,7 +16,7 @@ import pl.altkom.moto.crm.model.ProductAvailability;
  *
  * @author Administrator
  */
-@ContextConfiguration("/jpa-applicationContext.xml")
+@ContextConfiguration("/jpa-application-context.xml")
 public class ProductStorageTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Autowired

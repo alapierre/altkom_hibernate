@@ -23,6 +23,9 @@ public class ProductStorageTest extends AbstractTransactionalJUnit4SpringContext
     @Autowired
     private Storage storage;
 
+    @Autowired
+    private ProductDao productDao;
+    
     /**
      * Test of findOne method, of class ClientDAOImpl.
      */
@@ -30,7 +33,8 @@ public class ProductStorageTest extends AbstractTransactionalJUnit4SpringContext
     public void shouldChangeAvailability() {
         ProductAvailability availability = new ProductAvailability();
         final Product product = new Product();
-        product.setId(2);
+        productDao.save(product);
+        
         availability.setProduct(product);
         availability.setQuantity(10);
         availability.setMinimalQuantity(5);

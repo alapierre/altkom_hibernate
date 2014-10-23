@@ -15,8 +15,8 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
  */
 
 
-@ContextConfiguration("/jpa-application-context.xml")
-public class ContextTest extends AbstractTransactionalJUnit4SpringContextTests {
+@ContextConfiguration("/applicationContext.xml")
+public class JpaContextTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Test
     public void test() {

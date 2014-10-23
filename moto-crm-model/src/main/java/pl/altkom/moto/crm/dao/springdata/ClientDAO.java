@@ -4,19 +4,15 @@
  * and open the template in the editor.
  */
 
-package pl.altkom.moto.crm.dao.hibernate;
+package pl.altkom.moto.crm.dao.springdata;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import pl.altkom.moto.crm.model.Client;
 
 /**
  *
  * @author Administrator
  */
-
-public interface ClientDAO {
-
-    Client findOne(Long id);
-
-    void save(Client entity);
+public interface ClientDAO extends JpaRepository<Client, Long>{
     
 }

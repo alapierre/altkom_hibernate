@@ -21,7 +21,7 @@
     <context:annotation-config/>
 <!--    <context:component-scan base-package="pl.altkom.logistic.dao"/>-->
 	
-    <jpa:repositories base-package="pl.altkom.logistic.dao.springdata"/>    
+    <jpa:repositories base-package="pl.altkom.moto.crm.dao.springdata"/>    
         
     <!-- Data source -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -37,7 +37,7 @@
         <property name="packagesToScan" value="pl.altkom.moto.crm.dao.hibernate" />
         <property name="jpaProperties">
             <props>
-                <!--                <prop key="hibernate.hbm2ddl.auto">create</prop>-->
+                <!-- <prop key="hibernate.hbm2ddl.auto">create</prop>-->
                 <prop key="hibernate.format_sql">true</prop>
             </props>
         </property>
@@ -55,7 +55,7 @@
     </bean>
     
     <!-- Transaction template -->
-    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+<!--    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
         <property name="transactionManager" ref="transactionManager" />
-    </bean>
+    </bean>-->
 </beans>

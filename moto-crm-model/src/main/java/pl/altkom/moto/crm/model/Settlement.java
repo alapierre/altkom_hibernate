@@ -13,7 +13,7 @@ import javax.persistence.Entity;
  * @author Administrator
  */
 @Entity
-class SettlementEntity extends BaseEntity {
+class Settlement extends BaseEntity {
 
     private Invoice invoice;
     private Client client;

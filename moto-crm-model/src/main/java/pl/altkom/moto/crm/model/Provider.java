@@ -6,13 +6,19 @@
 
 package pl.altkom.moto.crm.model;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author Administrator
  */
+@Entity
 class Provider extends BaseEntity{
     private String company;
-    private PaymentEntity payment;
+    
+    @OneToOne
+    private Payment payment;
 
     public String getCompany() {
         return company;
@@ -22,11 +28,11 @@ class Provider extends BaseEntity{
         this.company = company;
     }
 
-    public PaymentEntity getPrice() {
+    public Payment getPrice() {
         return payment;
     }
 
-    public void setPrice(PaymentEntity price) {
+    public void setPrice(Payment price) {
         this.payment = price;
     }
 }

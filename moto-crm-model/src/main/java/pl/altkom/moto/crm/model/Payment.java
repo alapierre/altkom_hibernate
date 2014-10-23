@@ -6,25 +6,27 @@
 package pl.altkom.moto.crm.model;
 
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Administrator
  */
-public class PaymentEntity extends BaseEntity {
+@Entity
+public class Payment extends BaseEntity {
 
-    private double cost;
+    private double price;
     private Date incomeDate;
     private PaymentType paymentType;
     private PaymentForm paymentForm;
-    private SettlementEntity settlement;
+    private Settlement settlement;
 
-    public double getCost() {
-        return cost;
+    public double getPrice() {
+        return price;
     }
 
-    public void setCost(double cost) {
-        this.cost = cost;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public Date getIncomeDate() {
@@ -51,11 +53,11 @@ public class PaymentEntity extends BaseEntity {
         this.paymentForm = paymentForm;
     }
 
-    public SettlementEntity getSettlement() {
+    public Settlement getSettlement() {
         return settlement;
     }
 
-    public void setSettlement(SettlementEntity settlement) {
+    public void setSettlement(Settlement settlement) {
         this.settlement = settlement;
     }
     

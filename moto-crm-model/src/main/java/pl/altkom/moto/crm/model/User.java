@@ -5,17 +5,25 @@
  */
 package pl.altkom.moto.crm.model;
 
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 /**
  *
  * @author Administrator
  */
+@Entity
 public class User extends BaseEntity {
 
     private String login;
     private String password;
     private boolean active;
-    private Group group;
 
+    @ManyToMany(mappedBy = "users")
+    private List<Group> groups;
+    
     public String getLogin() {
         return login;
     }
@@ -40,12 +48,6 @@ public class User extends BaseEntity {
         this.active = active;
     }
 
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
-    }
+   
 
 }

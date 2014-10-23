@@ -28,7 +28,7 @@ public class ClientDAOTest extends AbstractTransactionalJUnit4SpringContextTests
     @Test
     public void testFind() {
         
-        List<Client> res = clientDAO.findByNameIgnoreCaseAndEmail("ala", "adrian@soft-project.pl");
+        List<Client> res = clientDAO.findByNameLikeIgnoreCaseAndEmail("ala", "adrian@soft-project.pl");
         
         System.out.println(res);
     }

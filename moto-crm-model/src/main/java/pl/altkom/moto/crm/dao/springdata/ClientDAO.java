@@ -16,6 +16,6 @@ import pl.altkom.moto.crm.model.Client;
  */
 public interface ClientDAO extends JpaRepository<Client, Long>{
     
-    public List<Client> findByNameIgnoreCaseAndEmail(String name, String email);
+    public List<Client> findByNameLikeIgnoreCaseAndEmail(String name, String email);
     
 }

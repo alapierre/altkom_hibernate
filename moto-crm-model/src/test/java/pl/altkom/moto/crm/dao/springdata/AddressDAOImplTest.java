@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.altkom.moto.crm.model.Address;
 
-@ContextConfiguration("/jpa-applicationContext.xml")
+@ContextConfiguration("/jpa-application-context.xml")
 @TransactionConfiguration(defaultRollback = false)
 public class AddressDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
     

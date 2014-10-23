@@ -23,7 +23,7 @@ public class Group extends BaseEntity {
 
     @Column
     private String name;
-    @Column(name = "desc")
+    @Column(name = "descr")
     private String description;
     @Column
     private String code;

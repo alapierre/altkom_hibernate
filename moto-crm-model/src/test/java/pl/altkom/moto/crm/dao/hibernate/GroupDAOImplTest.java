@@ -51,7 +51,7 @@ public class GroupDAOImplTest extends AbstractTransactionalJUnit4SpringContextTe
     private Group buildGroup() {
         final Group group = new Group();
         group.setName("group1");
-        group.setActive(false);
+        group.setActive("false");
         group.setDescription("elaborate description");
         return group;
     }

@@ -28,7 +28,7 @@ public class Group extends BaseEntity {
     @Column
     private String code;
     @Column
-    private String active;
+    private Boolean active;
 
     @ManyToMany
     @JoinTable(
@@ -72,11 +72,11 @@ public class Group extends BaseEntity {
         this.code = code;
     }
 
-    public String getActive() {
+    public Boolean getActive() {
         return active;
     }
 
-    public void setActive(String active) {
+    public void setActive(Boolean active) {
         this.active = active;
     }
 

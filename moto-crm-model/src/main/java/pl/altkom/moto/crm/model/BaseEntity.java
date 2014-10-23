@@ -44,6 +44,12 @@ public class BaseEntity implements Serializable{
         }
         return true;
     }
+
+    public long getId() {
+        return id;
+    }
+    
+    
     
     
     

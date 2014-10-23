@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
  * @author Administrator
  */
 @Entity
-class Settlement extends BaseEntity {
+public class Settlement extends BaseEntity {
 
     @OneToOne
     private Invoice invoice;

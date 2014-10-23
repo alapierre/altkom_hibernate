@@ -7,6 +7,7 @@ package pl.altkom.moto.crm.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -19,6 +20,8 @@ public class Payment extends BaseEntity {
     private Date incomeDate;
     private PaymentType paymentType;
     private PaymentForm paymentForm;
+    
+    @OneToMany
     private Settlement settlement;
 
     public double getPrice() {

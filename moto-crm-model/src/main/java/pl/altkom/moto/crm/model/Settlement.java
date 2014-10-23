@@ -7,6 +7,9 @@ package pl.altkom.moto.crm.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -15,8 +18,12 @@ import javax.persistence.Entity;
 @Entity
 class Settlement extends BaseEntity {
 
+    @OneToOne
     private Invoice invoice;
+
+    @ManyToOne
     private Client client;
+
     private double net;
     private Date finalizationDate;
 
@@ -51,6 +58,5 @@ class Settlement extends BaseEntity {
     public void setFinalizationDate(Date finalizationDate) {
         this.finalizationDate = finalizationDate;
     }
-    
-    
+
 }

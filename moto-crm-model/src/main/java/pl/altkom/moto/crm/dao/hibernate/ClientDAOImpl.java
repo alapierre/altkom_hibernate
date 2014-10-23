@@ -18,23 +18,11 @@ import pl.altkom.moto.crm.model.Client;
  * @author Administrator
  */
 @Repository
-public class ClientDAOImpl implements ClientDAO {
+public class ClientDAOImpl extends GenericDAOHibernateImpl<Client, Long> implements ClientDAO {
     
-    @Autowired
-    private SessionFactory sessionFactory;
     
-    protected Session getSession() {
-        sessionFactory.openSession();
-        return sessionFactory.getCurrentSession();
-    }
+
+   
+        
     
-    @Override
-    public Client findOne(long id) {
-        return (Client) getSession().load(Client.class, id);
-    }
-    
-    @Override
-    public void save(Client entity) {
-        getSession().saveOrUpdate(entity);
-    }
 }

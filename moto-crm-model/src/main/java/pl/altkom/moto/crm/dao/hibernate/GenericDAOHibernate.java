@@ -6,18 +6,21 @@
 
 package pl.altkom.moto.crm.dao.hibernate;
 
-import org.springframework.stereotype.Repository;
-import pl.altkom.moto.crm.model.Client;
+import java.io.Serializable;
 
 /**
  *
  * @author Administrator
  */
-
-public interface ClientDAO {
-
-    Client findOne(Long id);
-
-    void save(Client entity);
+interface GenericDAOHibernate<T, PK extends Serializable> {
     
+    public T findOne(PK id);
+    
+    public T load(PK id);
+    
+    public void save(T entity);
+    
+    public Iterable<T> findAll();
+    
+    public void delete(T entity);
 }

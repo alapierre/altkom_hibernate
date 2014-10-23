@@ -6,6 +6,7 @@
 
 package pl.altkom.moto.crm.dao.springdata;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.altkom.moto.crm.model.Client;
 
@@ -14,5 +15,7 @@ import pl.altkom.moto.crm.model.Client;
  * @author Administrator
  */
 public interface ClientDAO extends JpaRepository<Client, Long>{
+    
+    public List<Client> findByNameIgnoreCaseAndEmail(String name, String email);
     
 }

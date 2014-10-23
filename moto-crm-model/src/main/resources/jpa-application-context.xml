@@ -17,7 +17,7 @@
 ">
 
     <!-- Placeholder config -->
-    <context:property-placeholder location="classpath:test.properties" />
+    <context:property-placeholder location="classpath:system.properties" />
     <context:annotation-config/>
 <!--    <context:component-scan base-package="pl.altkom.logistic.dao"/>-->
 	
@@ -34,7 +34,7 @@
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="pl.altkom.moto.crm.dao.hibernate" />
+        <property name="packagesToScan" value="pl.altkom.moto.crm.model" />
         <property name="jpaProperties">
             <props>
                 <!-- <prop key="hibernate.hbm2ddl.auto">create</prop>-->

@@ -5,6 +5,7 @@
  */
 package pl.altkom.moto.crm.dao.springdata;
 
+import java.util.List;
 import pl.altkom.moto.crm.dao.hibernate.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +18,20 @@ import pl.altkom.moto.crm.model.Client;
  *
  * @author Administrator
  */
-@ContextConfiguration("/jpa-applicationContext.xml")
+@ContextConfiguration("/jpa-application-context.xml")
 @TransactionConfiguration(defaultRollback = false)
-public class ClientDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class ClientDAOTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Autowired
     private ClientDAO clientDAO;
 
-    
+    @Test
+    public void testFind() {
+        
+        List<Client> res = clientDAO.findByNameIgnoreCaseAndEmail("ala", "adrian@soft-project.pl");
+        
+        System.out.println(res);
+    }
 
     /**
      * Test of findOne method, of class ClientDAOImpl.

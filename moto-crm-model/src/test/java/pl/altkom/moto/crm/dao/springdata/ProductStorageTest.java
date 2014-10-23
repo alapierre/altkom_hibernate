@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import pl.altkom.moto.crm.dao.hibernate.ProductDao;
 import pl.altkom.moto.crm.model.Product;
 import pl.altkom.moto.crm.model.ProductAvailability;
 

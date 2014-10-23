@@ -17,8 +17,10 @@
     <!-- Placeholder config -->
     <context:property-placeholder location="classpath:system.properties" />
     <context:annotation-config/>
-    <context:component-scan base-package="pl.com.softproject.altkom.hibernate.dao"/>
+    <context:component-scan base-package="pl.altkom.moto.crm.dao.hibernate"/>
 	
+    <tx:annotation-driven/>
+    
     <!-- Data source -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${db.driver}" />
@@ -35,6 +37,8 @@
             <props>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+<!--                <prop key="hibernate.current_session_context_class">thread</prop>-->
             </props>
         </property>
     </bean>
@@ -47,5 +51,9 @@
     <bean id="persistenceExceptionTranslationPostProcessor"
          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
+    <!-- Transaction template -->
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager" />
+    </bean>
     
 </beans>

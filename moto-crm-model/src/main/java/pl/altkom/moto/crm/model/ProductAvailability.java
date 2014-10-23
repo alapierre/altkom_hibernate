@@ -17,7 +17,7 @@ import javax.persistence.OneToOne;
 public class ProductAvailability extends BaseEntity {
 
     @OneToOne
-    @JoinColumn(name = "product", referencedColumnName = "id")
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
     private long quantity;
     private long minimalQuantity;

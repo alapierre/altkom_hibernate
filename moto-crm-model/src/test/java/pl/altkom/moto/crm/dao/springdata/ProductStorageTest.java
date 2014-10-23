@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import org.springframework.test.context.transaction.TransactionConfiguration;
+import pl.altkom.moto.crm.dao.hibernate.ProductDao;
 import pl.altkom.moto.crm.model.Product;
 import pl.altkom.moto.crm.model.ProductAvailability;
 
@@ -18,7 +18,6 @@ import pl.altkom.moto.crm.model.ProductAvailability;
  * @author Administrator
  */
 @ContextConfiguration("/jpa-applicationContext.xml")
-@TransactionConfiguration(defaultRollback = false)
 public class ProductStorageTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Autowired

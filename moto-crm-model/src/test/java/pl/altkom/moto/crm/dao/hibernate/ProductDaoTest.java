@@ -10,7 +10,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
  *
  * @author Administrator
  */
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration("/session-factory-applicationContext.xml")
 @TransactionConfiguration(defaultRollback = false)
 public class ProductDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
     

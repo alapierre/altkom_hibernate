@@ -5,7 +5,7 @@
  */
 package pl.altkom.moto.crm.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -25,7 +25,8 @@ public class Invoice extends BaseEntity {
     @OneToMany
     @JoinTable(name = "INV_PRODUCT",
             joinColumns = @JoinColumn(name = "INVOICE_ID"),
-            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
+            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID")
+    )
     private List<Product> products;
     
     

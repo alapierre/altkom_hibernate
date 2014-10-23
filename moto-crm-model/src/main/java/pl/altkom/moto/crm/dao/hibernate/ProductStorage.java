@@ -24,7 +24,6 @@ public class ProductStorage implements Storage {
     private SessionFactory sessionFactory;
 
     protected Session getSession() {
-        sessionFactory.openSession();
         return sessionFactory.getCurrentSession();
     }
 

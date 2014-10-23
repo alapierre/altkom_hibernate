@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
  * @author Administrator
  */
 @Entity
+@Table(name="uzer")
 public class User extends BaseEntity {
 
     private String login;

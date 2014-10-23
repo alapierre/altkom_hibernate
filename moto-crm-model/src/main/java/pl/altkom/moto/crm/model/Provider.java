@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
  * @author Administrator
  */
 @Entity
-class Provider extends BaseEntity{
+public class Provider extends BaseEntity{
     private String company;
     
     @OneToOne

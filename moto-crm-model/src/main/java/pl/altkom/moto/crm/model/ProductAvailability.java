@@ -6,6 +6,8 @@
 package pl.altkom.moto.crm.model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -14,6 +16,8 @@ import javax.persistence.Entity;
 @Entity
 public class ProductAvailability extends BaseEntity {
 
+    @OneToOne
+    @JoinColumn(name = "product", referencedColumnName = "id")
     private Product product;
     private long quantity;
     private long minimalQuantity;

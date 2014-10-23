@@ -5,11 +5,13 @@
  */
 package pl.altkom.moto.crm.model;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 
 /**
- * 
+ *
  * @author Administrator
  */
 @Entity
@@ -19,6 +21,10 @@ public class Role extends BaseEntity {
     private String name;
     @Column(name = "desc")
     private String description;
+
+    @ManyToMany(mappedBy = "roles")
+    private List<Group> groups;
+    
 
     public String getName() {
         return name;
@@ -36,4 +42,13 @@ public class Role extends BaseEntity {
         this.description = description;
     }
 
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+    
+    
 }

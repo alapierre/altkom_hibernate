@@ -8,19 +8,34 @@ package pl.altkom.moto.crm.model;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Administrator
  */
 @Entity
+@Table(name = "Orders")
 public class Order extends BaseEntity {
     
+    @OneToOne
+    @JoinColumn(name = "CLIENT_ID")
     private Client client;
     
     private transient List<ProductQuantity> products;
+    
+    @OneToOne
+    @JoinColumn(name = "INVOICE_ID")
     private Invoice invoice;
+    
+    @Temporal(TemporalType.DATE)
     private Date orderDate;
+    
+    @Temporal(TemporalType.DATE)
     private Date completionDate;
 
     public Client getClient() {

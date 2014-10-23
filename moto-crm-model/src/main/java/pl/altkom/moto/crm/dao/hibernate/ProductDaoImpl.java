@@ -18,4 +18,9 @@ public class ProductDaoImpl implements ProductDao {
     public Product find(Long id) {
         return (Product) sessionFactory.getCurrentSession().get(Product.class, id);
     }
+
+    @Override
+    public void save(Product product) {
+        sessionFactory.getCurrentSession().save(product);
+    }
 }

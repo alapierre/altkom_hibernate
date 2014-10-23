@@ -9,5 +9,5 @@ import pl.altkom.moto.crm.model.Product;
 public interface ProductDao {
 
     Product find(Long id);
-    
+    void save (Product product);
 }

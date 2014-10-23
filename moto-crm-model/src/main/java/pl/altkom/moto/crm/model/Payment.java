@@ -5,6 +5,7 @@
  */
 package pl.altkom.moto.crm.model;
 
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -22,7 +23,7 @@ public class Payment extends BaseEntity {
     private PaymentForm paymentForm;
     
     @OneToMany
-    private Settlement settlement;
+    private Collection<Settlement> settlement;
 
     public double getPrice() {
         return price;
@@ -56,13 +57,13 @@ public class Payment extends BaseEntity {
         this.paymentForm = paymentForm;
     }
 
-    public Settlement getSettlement() {
+    public Collection<Settlement> getSettlement() {
         return settlement;
     }
 
-    public void setSettlement(Settlement settlement) {
+    public void setSettlement(Collection<Settlement> settlement) {
         this.settlement = settlement;
     }
-    
+  
     
 }

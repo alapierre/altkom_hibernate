@@ -65,6 +65,14 @@ public class ClientDAOTest extends AbstractTransactionalJUnit4SpringContextTests
     }
     
     @Test
+    public void testFindAllPag() {
+        
+        clientDAO.findAll(new PageRequest(0, 5, 
+                new Sort(Sort.Direction.ASC, "id")));
+        
+    }
+    
+    @Test
     public void testFindTop100() {
         
         List<Client> res = clientDAO.findTop100ByName("a");

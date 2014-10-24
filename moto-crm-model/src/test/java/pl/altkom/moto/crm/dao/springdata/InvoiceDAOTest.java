@@ -18,7 +18,9 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.altkom.moto.crm.dao.hibernate.*;
 import pl.altkom.moto.crm.model.Client;
+import pl.altkom.moto.crm.model.InviceItem;
 import pl.altkom.moto.crm.model.Invoice;
+import pl.altkom.moto.crm.model.Product;
 
 /**
  *
@@ -30,6 +32,9 @@ public class InvoiceDAOTest extends AbstractTransactionalJUnit4SpringContextTest
 
     @Autowired
     private InvoiceDAO invoiceDAO;
+    
+    @Autowired
+    private ProductDao productDao;
 
 //    @Test
 //    public void testFind() {
@@ -56,11 +61,33 @@ public class InvoiceDAOTest extends AbstractTransactionalJUnit4SpringContextTest
 
         System.out.println("save");
         
+        Product p = new Product();
+        productDao.save(p);
+        
         Invoice entity = new Invoice();
         entity.setCreationDate(new Date());
         entity.setFinalizationDate(new Date());
+        
+        
+        
+        InviceItem i = new InviceItem();
+        i.setInvoice(entity);
+        i.setPrice(11);
+        i.setProduct(p);
+        
+        entity.getProducts().add(i);
+        
+        
         invoiceDAO.save(entity);
+        
 
+    }
+    
+    @Test
+    public void testUpdate() {
+        
+        Invoice i = invoiceDAO.findOne(1L);
+        
     }
     
     @Test

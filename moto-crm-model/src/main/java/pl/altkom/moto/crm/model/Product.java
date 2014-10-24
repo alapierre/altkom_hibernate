@@ -6,12 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.RelationTargetAuditMode;
 
 /**
  *
  * @author Administrator
  */
 @Entity
+@Audited
 public class Product extends BaseEntity {
     @Column(name = "ean_number")
     private String eanNumber;
@@ -19,6 +22,7 @@ public class Product extends BaseEntity {
     
     @OneToOne
     @JoinColumns(@JoinColumn(name = "product_group_id", referencedColumnName = "id"))
+    @Audited(targetAuditMode = RelationTargetAuditMode.NOT_AUDITED)
     private ProductGroup productGroup;
     
     private transient Collection<Product> compatibleProducts;

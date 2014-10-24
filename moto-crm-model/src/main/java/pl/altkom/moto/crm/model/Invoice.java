@@ -5,8 +5,10 @@
  */
 package pl.altkom.moto.crm.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -25,13 +27,9 @@ public class Invoice extends BaseEntity {
 
     private String invoiceNumber;
 
-    @OneToMany
-    @JoinTable(name = "INV_PRODUCT",
-            joinColumns = @JoinColumn(name = "INVOICE_ID"),
-            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID")
-    )
-    @Audited(targetAuditMode = NOT_AUDITED)
-    private List<Product> products;
+    @OneToMany(mappedBy = "invoice" ,cascade = CascadeType.ALL)
+    
+    private List<InviceItem> products = new ArrayList<>();
     
     
     @OneToOne
@@ -79,6 +77,10 @@ public class Invoice extends BaseEntity {
     @Override
     public String toString() {
         return "Invoice{" + "invoiceNumber=" + invoiceNumber + ", products=" + products + ", client=" + client + ", creationDate=" + creationDate + ", finalizationDate=" + finalizationDate + ", paymentType=" + paymentType + '}';
+    }
+
+    public List<InviceItem> getProducts() {
+        return products;
     }
     
     

@@ -72,4 +72,11 @@ public class Invoice extends BaseEntity {
         this.paymentType = paymentType;
     }
 
+    @Override
+    public String toString() {
+        return "Invoice{" + "invoiceNumber=" + invoiceNumber + ", products=" + products + ", client=" + client + ", creationDate=" + creationDate + ", finalizationDate=" + finalizationDate + ", paymentType=" + paymentType + '}';
+    }
+    
+    
+
 }

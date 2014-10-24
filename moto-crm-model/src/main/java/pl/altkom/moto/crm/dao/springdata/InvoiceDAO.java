@@ -6,6 +6,8 @@
 
 package pl.altkom.moto.crm.dao.springdata;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.altkom.moto.crm.model.Invoice;
 
@@ -14,5 +16,7 @@ import pl.altkom.moto.crm.model.Invoice;
  * @author Administrator
  */
 public interface InvoiceDAO extends JpaRepository<Invoice, Long>{
+    
+    public Page<Invoice> findByInvoiceNumber(String invoiceNumber, Pageable pageable);
     
 }

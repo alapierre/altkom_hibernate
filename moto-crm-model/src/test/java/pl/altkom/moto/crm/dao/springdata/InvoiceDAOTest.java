@@ -9,6 +9,10 @@ import java.util.Date;
 import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -56,20 +60,19 @@ public class InvoiceDAOTest extends AbstractTransactionalJUnit4SpringContextTest
         entity.setCreationDate(new Date());
         entity.setFinalizationDate(new Date());
         invoiceDAO.save(entity);
-        
-//        transactionTemplate.execute(new TransactionCallback() {
-//
-//            @Override
-//            public Object doInTransaction(TransactionStatus status) {
-//                
-//
-//                
-//                return null;
-//            }
-//        });
 
+    }
+    
+    @Test
+    public void testPageable(){
+        final Page<Invoice> invoiceNumbers = invoiceDAO
+                .findByInvoiceNumber("FVFV3232323", 
+                        new PageRequest(0, 5, new Sort(Sort.Direction.ASC, "creationDate")));
         
-
+        for(Invoice invoice : invoiceNumbers){
+            System.out.println(invoice);
+        }
+        
     }
 
 }

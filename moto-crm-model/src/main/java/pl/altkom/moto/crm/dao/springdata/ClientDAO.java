@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.history.RevisionRepository;
 import pl.altkom.moto.crm.model.Client;
 
 /**
@@ -20,7 +21,7 @@ import pl.altkom.moto.crm.model.Client;
  * @author Administrator
  */
 public interface ClientDAO extends JpaRepository<Client, Long>, 
-        PagingAndSortingRepository<Client, Long> {
+        PagingAndSortingRepository<Client, Long>, RevisionRepository<Client, Long, Integer> {
     
     public List<Client> findTop100ByName(String name);
     

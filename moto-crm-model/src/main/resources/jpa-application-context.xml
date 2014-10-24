@@ -21,8 +21,12 @@
     <context:annotation-config/>
 <!--    <context:component-scan base-package="pl.altkom.logistic.dao"/>-->
 	
-    <jpa:repositories base-package="pl.altkom.moto.crm.dao.springdata"/>    
+<!--    <jpa:repositories base-package="pl.altkom.moto.crm.dao.springdata"/>    -->
         
+    <jpa:repositories base-package="pl.altkom.moto.crm.dao.springdata" 
+                      factory-class="org.springframework.data.envers.repository.support.EnversRevisionRepositoryFactoryBean"/>    
+     
+    
     <!-- Data source -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${db.driver}" />

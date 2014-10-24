@@ -8,6 +8,7 @@ package pl.altkom.moto.crm.model;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Size;
+import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -17,6 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
+@Audited
 public class Client extends BaseEntity {
     
     @Size(max = 128)

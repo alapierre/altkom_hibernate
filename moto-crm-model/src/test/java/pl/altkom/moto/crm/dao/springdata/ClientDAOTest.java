@@ -89,6 +89,19 @@ public class ClientDAOTest extends AbstractTransactionalJUnit4SpringContextTests
         clientDAO.findOne(1L);
     }
 
+    @Test
+    public void update() {
+        
+        Client c = clientDAO.findOne(7L);
+        c.setName("test");
+        clientDAO.save(c);
+    }
+    
+    @Test
+    public void delete() {
+        clientDAO.delete(7L);
+    }
+    
     /**
      * Test of save method, of class ClientDAOImpl.
      */

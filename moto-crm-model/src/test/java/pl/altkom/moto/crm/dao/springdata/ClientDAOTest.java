@@ -6,12 +6,15 @@
 package pl.altkom.moto.crm.dao.springdata;
 
 import java.util.List;
-import pl.altkom.moto.crm.dao.hibernate.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import pl.altkom.moto.crm.dao.hibernate.*;
 import pl.altkom.moto.crm.model.Client;
 
 /**
@@ -28,11 +31,47 @@ public class ClientDAOTest extends AbstractTransactionalJUnit4SpringContextTests
     @Test
     public void testFind() {
         
-        List<Client> res = clientDAO.findByNameIgnoreCaseAndEmail("ala", "adrian@soft-project.pl");
+        List<Client> res = clientDAO.findByNameLikeIgnoreCaseAndEmail("ala", "adrian@soft-project.pl");
         
         System.out.println(res);
     }
 
+    @Test
+    public void testFindWithPage() {
+        
+        Page<Client> page = clientDAO.findByNameLikeIgnoreCaseAndEmail("adrian", 
+                "adrian@soft-project.pl", new PageRequest(1, 5, new Sort(Sort.Direction.ASC, "name")));
+        
+        System.out.println("ilosc rekordow " + page.getTotalElements());
+        
+        for(Client c : page) {
+            System.out.println(c);
+        }
+        
+    }
+    
+    @Test
+    public void testFindAllWithPage() {
+        
+        Page<Client> page = clientDAO.findAllClients(
+                new PageRequest(0, 5, new Sort(Sort.Direction.ASC, "name")));
+        
+        System.out.println("ilosc rekordow " + page.getTotalElements());
+        
+        for(Client c : page) {
+            System.out.println(c);
+        }
+        
+    }
+    
+    @Test
+    public void testFindTop100() {
+        
+        List<Client> res = clientDAO.findTop100ByName("a");
+        
+        System.out.println(res);
+    }
+    
     /**
      * Test of findOne method, of class ClientDAOImpl.
      */

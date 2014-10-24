@@ -6,8 +6,12 @@
 
 package pl.altkom.moto.crm.dao.springdata;
 
+
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import pl.altkom.moto.crm.model.Client;
 
 /**
@@ -16,6 +20,17 @@ import pl.altkom.moto.crm.model.Client;
  */
 public interface ClientDAO extends JpaRepository<Client, Long>{
     
-    public List<Client> findByNameIgnoreCaseAndEmail(String name, String email);
+    public List<Client> findTop100ByName(String name);
+    
+    public List<Client> findByNameLikeIgnoreCaseAndEmail(String name, 
+            String email);
+    
+    public Page<Client> findByNameLikeIgnoreCaseAndEmail(String name, 
+            String email, Pageable pageable);
+    
+    @Query("select c from Client c")
+    public Page<Client> findAllClients(Pageable pageable);
+    
+    
     
 }
